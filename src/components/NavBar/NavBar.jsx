@@ -10,6 +10,8 @@ export default function NavBar({ user, setUser }) {
   return (
     <nav>
       <span>Welcome, {user.name}</span>
+      <Link to="/merch">Merchandise</Link>
+      &nbsp; | &nbsp;
       <Link to="/cart">Cart(ICON)</Link>
       &nbsp; | &nbsp;
       <Link onClick={handleLogOut} to="">Log Out</Link>
