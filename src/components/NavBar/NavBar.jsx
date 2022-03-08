@@ -10,7 +10,7 @@ export default function NavBar({ user, setUser }) {
   return (
     <nav>
       <span>Welcome, {user.name}</span>
-      <Link to="/merch">Merchandise</Link>
+      <Link to="/product">Products</Link>
       &nbsp; | &nbsp;
       <Link to="/cart">Cart(ICON)</Link>
       &nbsp; | &nbsp;
