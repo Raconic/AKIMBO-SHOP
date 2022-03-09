@@ -3,9 +3,10 @@ const product = require('./product');
 const Schema = require('mongoose').Schema;
 
 const productSchema = new Schema({
-    name: { type: string, required: true },
+    name: { type: String, required: true },
     price: { type: Number, required: true, default: 0 },
-    image: String
+    description: { type: String, required: true },
+    photo: { type: String }
 })
 
 module.exports = productSchema;
