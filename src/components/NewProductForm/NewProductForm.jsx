@@ -1,24 +1,7 @@
 import { useState } from "react";
 
 export default function NewProductForm () {
-    const [ formData, setFormData ] = useState({
-        name: "",
-        price: "",
-        decription: "",
-    })
-
-    function handleAddNewProduct(evt) {
-        evt.preventDefault()
-        const form = new FormData();
-        form.append('name', formData.name);
-        form.append('price', formData.price);
-        form.append('description', formData.description);
-        setFormData({ name: "", price: "", description:""});
-    }
-
-    function handleChange(evt) {
-        setFormData({ ...formData,[evt.target.name]: evt.target.value});
-    }
+   
 
 
     return (
