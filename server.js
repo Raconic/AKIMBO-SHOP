@@ -3,6 +3,7 @@ const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 
+
 // Always require and configure neat the top
 require('dotenv').config();
 // Connect to the database (after the dotenv)
@@ -20,7 +21,8 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use(require('./config/checkToken'));
 
 // API routes here
-app.use('/api/users', require('./routes/api/users'));
+app.use('/api/users', require("./routes/api/users"));
+
 
 // "Catch all" route
 app.get('/*', function(req, res) {

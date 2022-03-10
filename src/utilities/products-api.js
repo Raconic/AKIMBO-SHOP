@@ -1,12 +1,11 @@
-import sendRequest from './send-request';
+import sendRequest from "./send-request";
+const BASE_URL = "/api/products";
 
-const BASE_URL = '/api/product';
-
-export function getAll() {
+export function getProducts() {
   return sendRequest(BASE_URL);
 }
 export function createProduct (formData) {
-  return sendRequest(`${BASE_URL}`, 'POST', formData, true);
+  return sendRequest(`${BASE_URL}`, "POST", formData, true);
 }
 
 export function getById(id) {

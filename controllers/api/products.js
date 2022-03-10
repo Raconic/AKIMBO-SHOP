@@ -3,6 +3,7 @@ const product = require("../../models/product")
 module.exports= {
     index,
     create,
+    show
 }
 
 async function index(res, req) {
@@ -16,4 +17,7 @@ async function create(res, req) {
     res.json(product)
 }
 
-
+async function show(req, res) {
+    const product = await product.findById(req.params.id);
+    res.json(product);
+  }

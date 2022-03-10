@@ -8,4 +8,3 @@ router.post('/', productsCtrl.create)
 
 router.get('/:id', productsCtrl.show)
 
-router.delete('/:id', productsCtrl.deleteProduct)
