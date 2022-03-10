@@ -1,7 +1,21 @@
 import { useState } from "react";
+import * as productsAPI from "../../utilities/products-api"
+export default function NewProductForm ( {createProduct} ) {
+    const [ formData, setFormData ] = useState({
+        name: "",
+        price: "",
+        decription: "",
+    })
 
-export default function NewProductForm () {
-   
+    function handleAddNewProduct(evt) {
+        evt.preventDefault()
+        productsAPI.createProduct(formData)
+        setFormData({ name: "", price: "", description:""});
+    }
+
+    function handleChange(evt) {
+        setFormData({ ...formData,[evt.target.name]: evt.target.value});
+    }
 
 
     return (

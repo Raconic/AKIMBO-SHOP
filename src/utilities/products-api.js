@@ -5,7 +5,7 @@ const BASE_URL = '/api/product';
 export function getAll() {
   return sendRequest(BASE_URL);
 }
-export function newProductCreate(formData) {
+export function createProduct (formData) {
   return sendRequest(`${BASE_URL}`, 'POST', formData, true);
 }
 
