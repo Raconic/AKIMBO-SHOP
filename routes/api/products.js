@@ -8,3 +8,4 @@ router.post('/', productsCtrl.create)
 
 router.get('/:id', productsCtrl.show)
 
+module.exports = router;

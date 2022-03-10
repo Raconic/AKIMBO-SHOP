@@ -5,7 +5,7 @@ export function getProducts() {
   return sendRequest(BASE_URL);
 }
 export function createProduct (formData) {
-  return sendRequest(`${BASE_URL}`, "POST", formData, true);
+  return sendRequest(`${BASE_URL}`, "POST", formData);
 }
 
 export function getById(id) {

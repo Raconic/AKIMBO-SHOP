@@ -1,4 +1,4 @@
-const product = require("../../models/product")
+const Product = require("../../models/product")
 
 module.exports= {
     index,
@@ -6,18 +6,19 @@ module.exports= {
     show
 }
 
-async function index(res, req) {
-    const products = await product.find({}).sort('name')
+async function index(req, res) {
+    const products = await Product.find({}).sort('name')
     res.json(products);
 }
 
 
-async function create(res, req) {
-    const product = await product.create(req.body)
+async function create(req, res) {
+    console.log("hello")
+    const product = await Product.create(req.body);
     res.json(product)
 }
 
 async function show(req, res) {
-    const product = await product.findById(req.params.id);
+    const product = await Product.findById(req.params.id);
     res.json(product);
   }

@@ -1,15 +1,16 @@
 import { useState } from "react";
-import * as productsAPI from "../../utilities/products-api"
-export default function NewProductForm ( {createProduct} ) {
+
+
+export default function NewProductForm ( {handleCreate} ) {
     const [ formData, setFormData ] = useState({
         name: "",
         price: "",
-        decription: "",
+        description: "",
     })
 
     function handleAddNewProduct(evt) {
         evt.preventDefault()
-        productsAPI.createProduct(formData)
+        handleCreate(formData)
         setFormData({ name: "", price: "", description:""});
     }
 
@@ -24,11 +25,11 @@ export default function NewProductForm ( {createProduct} ) {
                 <h1>Add Product</h1>
                 <form onSubmit={handleAddNewProduct}>
                 <label>Name</label>
-                <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+                <input type="text" name="name" value={formData.name} onChange={handleChange} />
                 <label>Price</label>
-                <input type="text" name="price" value={formData.price} onChange={handleChange} required />
+                <input type="string" name="price" value={formData.price} onChange={handleChange} />
                 <label>Description</label>
-                <input type="text" name="description" value={formData.description} onChange={handleChange} required />
+                <input type="text" name="description" value={formData.description} onChange={handleChange} />
                 <button type="submit">Add Product</button>
                 </form>
             </div>
