@@ -6,12 +6,13 @@ export default function NewProductForm ( {handleCreate} ) {
         name: "",
         price: "",
         description: "",
+        image:""
     })
 
     function handleAddNewProduct(evt) {
         evt.preventDefault()
         handleCreate(formData)
-        setFormData({ name: "", price: "", description:""});
+        setFormData({ name: "", price: "", description:"", image:""});
     }
 
     function handleChange(evt) {
@@ -28,6 +29,8 @@ export default function NewProductForm ( {handleCreate} ) {
                 <input type="text" name="name" value={formData.name} onChange={handleChange} />
                 <label>Price</label>
                 <input type="string" name="price" value={formData.price} onChange={handleChange} />
+                <label>Image URL</label>
+                <input type="string" name="image" value={formData.image} onChange={handleChange} />
                 <label>Description</label>
                 <input type="text" name="description" value={formData.description} onChange={handleChange} />
                 <button type="submit">Add Product</button>
