@@ -19,7 +19,7 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/" element={<HomePage />} />
               <Route path="/cart" element={<CartPage />} />
-              <Route path="/product" element={<ProductPage />} />
+              <Route path="/product" element={<ProductPage user = {user} />} />
             </Routes>
           </>
           :

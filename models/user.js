@@ -18,6 +18,11 @@ const userSchema = new Schema({
     trim: true,
     minlength: 3,
     required: true
+  },
+  role: {
+    type: String,
+    required: true,
+    default: "client"
   }
 }, {
   timestamps: true,

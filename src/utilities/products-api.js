@@ -1,7 +1,7 @@
 import sendRequest from "./send-request";
 const BASE_URL = "/api/products";
 
-export function getAll() {
+export function index() {
   return sendRequest(BASE_URL);
 }
 export function createProduct (formData) {

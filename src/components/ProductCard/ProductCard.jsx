@@ -1,9 +1,10 @@
-export default function ProductCard({ products }) {
+export default function ProductCard({ product }) {
     return (
         <div>
-            <div>Name:{products.name}</div>
-            <div>Price:{products.price}</div>
-            <div>Description:{products.description}</div>
+            <div>Name:{product.name}</div>
+            <div>Price:{product.price}</div>
+            <div>Description:{product.description}</div>
+            <div>Image: </div>
         </div>
     )
 }
