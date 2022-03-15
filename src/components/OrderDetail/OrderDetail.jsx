@@ -2,21 +2,21 @@ import LineProduct from '../LineProduct/LineProduct';
 
 // Used to display the details of any order, including the cart (unpaid order)
 export default function OrderDetail({ order, handleChangeQty, handleCheckout }) {
-  if (!order) return null;
+  // if (!order) return null;
 
-  const lineProducts = order.lineProducts.map(productItem =>
+  const lineProducts = order.lineProducts.map(product =>
     <LineProduct
-      lineProduct={productItem}
-      productName={productItem.name}
-      productPrice={productItem.price}
+      lineProduct={product}
+      // productName={productItem.name}
+      // productPrice={productItem.price}
       isPaid={order.isPaid}
       handleChangeQty={handleChangeQty}
-      key={productItem._id}
+      key={product._id}
     />
   );
 
   return (
-    <div className="OrderDetail">
+    <div>
       <div className="section-heading">
         {order.isPaid ?
           <span>ORDER <span className="smaller">{order.orderId}</span></span>
@@ -44,7 +44,7 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
             </section>
           </>
           :
-          <div className="hungry">No Drip?</div>
+          <div className="i">No Drip?</div>
         }
       </div>
     </div>

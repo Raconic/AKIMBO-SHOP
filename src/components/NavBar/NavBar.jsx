@@ -14,7 +14,7 @@ export default function NavBar({ user, setUser }) {
       &nbsp; | &nbsp;
       <Link to="/product">Products</Link>
       &nbsp; | &nbsp;
-      <Link to="/cart">Cart(ICON)</Link>
+      <Link to="/orders/new">Cart(ICON)</Link>
       &nbsp; | &nbsp;
       <Link onClick={handleLogOut} to="">Log Out</Link>
     </nav>

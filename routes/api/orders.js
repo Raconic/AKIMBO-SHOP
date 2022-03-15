@@ -5,7 +5,7 @@ const ordersCtrl = require('../../controllers/api/order');
 
 router.get('/cart', ordersCtrl.cart);
 
-router.post('/cart/products', ordersCtrl.addToCart);
+router.post('/cart/products/:id', ordersCtrl.addToCart);
 
 router.post('/cart/checkout', ordersCtrl.checkout);
 

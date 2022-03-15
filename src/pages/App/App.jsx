@@ -24,12 +24,17 @@ export default function App() {
       setProducts(products)
     }
     getAllProducts();
+    async function getCart() {
+      const cart = await ordersAPI.getCart();
+      setCart(cart);
+    }
+    getCart();
   }, []);
   
   async function handleCreate(formData) {
     console.log(formData)
     const product = await productsAPI.createProduct(formData)
-    setProducts(...products, product)
+    setProducts([...products, product])
   }
   async function handleAddToOrder(productId) {
     const updatedCart = await ordersAPI.addProductToCart(productId);
