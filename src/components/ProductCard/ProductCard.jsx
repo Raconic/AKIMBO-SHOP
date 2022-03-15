@@ -1,10 +1,16 @@
-export default function ProductCard({ product }) {
+import { Link } from "react-router-dom";
+
+export default function ProductCard({ product, handleAddToOrder}) {
     return (
         <div>
+            <img src={product.image} alt="img" width="150" height="125" />
             <div>Name:{product.name}</div>
-            <div>Price:{product.price}</div>
+            <span>${product.price.toFixed(2)}</span>
+            <button onClick={() => handleAddToOrder(product._id)}>
+                ADD TO CART
+            </button>
             <div>Description:{product.description}</div>
-            <div>Image: </div>
+            <Link to={`/${product._id}`} > Details</Link>
         </div>
     )
 }

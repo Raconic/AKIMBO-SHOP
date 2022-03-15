@@ -2,22 +2,21 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const productSchema = require('./productSchema');
 
-const lineItemSchema = new Schema({
+const lineProductSchema = new Schema({
   qty: { type: Number, default: 1 },
-  item: productSchema
+  product: productSchema
 }, {
   timestamps: true,
   toJSON: { virtuals: true }
 });
 
-lineItemSchema.virtual('extPrice').get(function() {
-  // 'this' is bound to the lineItem subdoc
-  return this.qty * this.item.price;
+lineProductSchema.virtual('extPrice').get(function() {
+  return this.qty * this.product.price;
 });
 
 const orderSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: 'User' },
-  lineItems: [lineItemSchema],
+  lineProducts: [lineProductSchema],
   isPaid: { type: Boolean, default: false }
 }, {
   timestamps: true,
@@ -25,11 +24,11 @@ const orderSchema = new Schema({
 });
 
 orderSchema.virtual('orderTotal').get(function() {
-  return this.lineItems.reduce((total, item) => total + item.extPrice, 0);
+  return this.lineProducts.reduce((total, product) => total + product.extPrice, 0);
 });
 
 orderSchema.virtual('totalQty').get(function() {
-  return this.lineItems.reduce((total, item) => total + item.qty, 0);
+  return this.lineProducts.reduce((total, product) => total + product.qty, 0);
 });
 
 orderSchema.virtual('orderId').get(function() {
@@ -49,31 +48,26 @@ orderSchema.statics.getCart = function(userId) {
   );
 };
 
-orderSchema.methods.addItemToCart = async function(itemId) {
+orderSchema.methods.addProductToCart = async function(productId) {
   const cart = this;
-  // Check if item already in cart
-  const lineItem = cart.lineItems.find(lineItem => lineItem.item._id.equals(itemId));
-  if (lineItem) {
-    lineItem.qty += 1;
+  const lineProduct = cart.lineProducts.find(lineProduct => lineProduct.product._id.equals(productId));
+  if (lineProduct) {
+    lineProduct.qty += 1;
   } else {
-    const item = await mongoose.model('Item').findById(itemId);
-    cart.lineItems.push({ item });
+    const product = await mongoose.model('Product').findById(productId);
+    cart.lineProducts.push({ product });
   }
   return cart.save();
 };
 
-// Instance method to set an item's qty in the cart (will add item if does not exist)
-orderSchema.methods.setItemQty = function(itemId, newQty) {
-  // this keyword is bound to the cart (order doc)
+
+orderSchema.methods.setProductQty = function(productId, newQty) {
   const cart = this;
-  // Find the line item in the cart for the menu item
-  const lineItem = cart.lineItems.find(lineItem => lineItem.item._id.equals(itemId));
-  if (lineItem && newQty <= 0) {
-    // Calling remove, removes itself from the cart.lineItems array
-    lineItem.remove();
-  } else if (lineItem) {
-    // Set the new qty - positive value is assured thanks to prev if
-    lineItem.qty = newQty;
+  const lineProduct = cart.lineProducts.find(lineProduct => lineProduct.product._id.equals(productId));
+  if (lineProduct && newQty <= 0) {
+    lineProduct.remove();
+  } else if (lineProduct) {
+    lineProduct.qty = newQty;
   }
   // return the save() method's promise
   return cart.save();

@@ -13,7 +13,6 @@ async function index(req, res) {
 
 
 async function create(req, res) {
-    console.log("hello")
     const product = await Product.create(req.body);
     res.json(product)
 }
