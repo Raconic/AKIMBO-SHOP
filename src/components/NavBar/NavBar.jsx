@@ -1,22 +1,50 @@
+import './NavBar.css'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
+import * as FaIcons from "react-icons/fa";
+import * as AiIcons from 'react-icons/ai';
+import { SidebarData } from './SidebarData'
 
 export default function NavBar({ user, setUser }) {
+  const [sidebar, setSidebar] = useState(false)
+  const showSidebar = () => setSidebar(!sidebar)
   function handleLogOut() {
     userService.logOut();
     setUser(null);
   }
 
+
   return (
-    <nav>
-      <span>Welcome, {user.name}</span>
-      <Link to="/">Home</Link>
-      &nbsp; | &nbsp;
-      <Link to="/product">Products</Link>
-      &nbsp; | &nbsp;
-      <Link to="/orders/new">Cart(ICON)</Link>
-      &nbsp; | &nbsp;
-      <Link onClick={handleLogOut} to="">Log Out</Link>
-    </nav>
+    <>
+      <div className="navbar">
+        <Link to="#" className='menu-bars'>
+          <FaIcons.FaBars onClick={showSidebar}/> 
+        </Link>
+      </div>
+      <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+        <ul className='nav-menu-items' onClick={showSidebar}>
+          <li className="navbar-toggle">
+            <Link onClick={handleLogOut} to="">
+              <FaIcons.FaCartPlus /> Log Out
+            </Link>
+          &nbsp; | &nbsp;
+            <Link to='#' className="menu-bars">
+                <AiIcons.AiOutlineClose />
+            </Link>
+            </li>
+            {SidebarData.map((item, index) =>{
+              return (
+                <li key={index} className={item.cName}>
+                    <Link to={item.path}>
+                      {item.icon}
+                      <span>{item.title}</span>
+                      </Link>
+                  </li>
+              )
+            })}
+          </ul>
+      </nav>
+    </>
   );
 }
