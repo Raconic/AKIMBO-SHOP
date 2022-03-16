@@ -1,0 +1,21 @@
+.product-form {
+    max-width:500px;
+    margin:2rem auto;
+    border:2px solid #fc8eac;
+    padding:2rem;
+}
+label {
+    display:block;
+    width:100%;
+}
+#addBtn {
+    border:0;
+    padding:.5rem;
+    margin:1rem 0;
+    width:auto;
+}
+#addBtn:hover {
+    background-color: #e94974;
+    color:#fc8eac
+    
+}

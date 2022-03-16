@@ -1,5 +1,5 @@
 import ProductCard from '../ProductCard/ProductCard';
-
+import './ProductList.css'
 export default function ProductList({ products, handleAddToOrder }) {
    const allProducts =  products && products.map(product => (
     <ProductCard
@@ -10,7 +10,9 @@ export default function ProductList({ products, handleAddToOrder }) {
    ))
     return (
         <main>
+            <div className='container'>
             {allProducts}
+            </div>
         </main>
     )
 }

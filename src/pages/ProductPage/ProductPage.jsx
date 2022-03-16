@@ -6,7 +6,6 @@ export default function ProductPage({ user, products, handleCreate, handleAddToO
   
   return (
       <main>
-        <h1>ProductPage</h1>
         {user.role==="admin" &&<NewProductForm handleCreate={handleCreate}/>}
         <div>
         <ProductList 

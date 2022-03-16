@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import LoginForm from '../../components/LoginForm/LoginForm';
@@ -7,7 +8,7 @@ export default function AuthPage({ setUser }) {
 
   return (
     <main>
-      <h1>AuthPage</h1>
+      <h1>AKIMBO</h1>
       <button onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'Sign Up' : 'Log In'}</button>
       { showLogin ?
         <LoginForm setUser={setUser} />

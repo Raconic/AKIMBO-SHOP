@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
+
 import OrderDetail from "../../components/OrderDetail/OrderDetail"
-export default function CartPage({products, order, handleChangeQty, handleCheckout}) {
+export default function CartPage({products, order, handleChangeQty, handleCheckout, user}) {
     return (
       <> 
-      <div className="order-page">
-          <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
+      <div className="container">
+      <h1>{user.name}'s Items</h1>
           <OrderDetail 
               products={products}
               order={order}

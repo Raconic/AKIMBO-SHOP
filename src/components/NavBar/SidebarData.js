@@ -13,7 +13,7 @@ export const SidebarData = [
     {
         title: 'Products',
         path: '/product',
-        icon: <IoIcons.IoMdPeople />,
+        icon: <FaIcons.FaTshirt />,
         cName: 'nav-text'
     },
     {

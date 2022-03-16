@@ -136,6 +136,11 @@ button.btn-sm {
   padding: .6vmin .8vmin;
 }
 
+button.btn-lg {
+  font-size:2vmin;
+  padding:.8vmin .10vmin;
+}
+
 button.btn-xs {
   font-size: 1vmin;
   padding: .4vmin .5vmin;
