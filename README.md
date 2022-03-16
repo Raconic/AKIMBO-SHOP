@@ -24,5 +24,6 @@ The Akimbo Shop is the perfect place to shop for creative headwear designed for 
 #Next Steps
 * Provide Full Checkout Functionality with Card and user info
 * Create Stock Functionality
+* Add Product Details
 
 
