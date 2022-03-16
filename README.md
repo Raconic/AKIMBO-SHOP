@@ -19,6 +19,7 @@ The Akimbo Shop is the perfect place to shop for creative headwear designed for 
 * React
 
 #Getting Started
+https://akimbo-shop.herokuapp.com/
 
 #Next Steps
 * Provide Full Checkout Functionality with Card and user info
