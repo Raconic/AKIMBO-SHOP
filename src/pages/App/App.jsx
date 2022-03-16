@@ -7,7 +7,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import CartPage from '../CartPage/CartPage'
 import ProductPage from '../ProductPage/ProductPage'
 import HomePage from '../HomePage/HomePage'
-import ProductDetailPage from '../ProductDetailsPage/ProductDetailsPage';
+import AboutPage from '../AboutPage/AboutPage'
 import * as productsAPI from "../../utilities/products-api"
 import * as ordersAPI from "../../utilities/orders-api"
 
@@ -32,7 +32,6 @@ export default function App() {
   }, []);
   
   async function handleCreate(formData) {
-    console.log(formData)
     const product = await productsAPI.createProduct(formData)
     setProducts([...products, product])
   }
@@ -72,7 +71,7 @@ export default function App() {
                 handleCreate = {handleCreate}
                 handleAddToOrder = {handleAddToOrder}
                 />} />
-              <Route path="/:Id" element={<ProductDetailPage />} />
+              <Route path="/about" element={<AboutPage/>} />
             </Routes>
           </>
           :

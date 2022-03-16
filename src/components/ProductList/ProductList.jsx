@@ -10,7 +10,7 @@ export default function ProductList({ products, handleAddToOrder }) {
    ))
     return (
         <main>
-            <div className='container'>
+            <div className='grid'>
             {allProducts}
             </div>
         </main>

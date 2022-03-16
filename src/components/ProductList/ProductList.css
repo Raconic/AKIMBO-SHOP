@@ -1,7 +1,10 @@
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 5rem;
+.grid {
+display: grid;
+  grid-template-columns: repeat(3, 40vmin);
+  grid-template-rows: repeat(3, 40vmin);
+  gap: 4vmin;
+  margin-top: 5vmin;
+  align-content: center;
+  justify-content: center;
 }
 
