@@ -2,13 +2,13 @@
 
 The Akimbo Shop is the perfect place to shop for creative headwear designed for the youth
 
-#ScreenShots
+# ScreenShots
 ![Imgur Image](https://i.imgur.com/ZIxYH3p.png)
 ![Imgur Image](https://i.imgur.com/GuvUxRv.jpg)
 ![Imgur Image](https://i.imgur.com/R1QGIx9.png)
 ![Imgur Image](https://i.imgur.com/W3WEGxr.png)
 
-#Technologies Used
+# Technologies Used
 
 * HTML
 * CSS
@@ -18,10 +18,10 @@ The Akimbo Shop is the perfect place to shop for creative headwear designed for 
 * MongoDB
 * React
 
-#Getting Started
+# Getting Started
 * https://akimbo-shop.herokuapp.com/ 1
 
-#Next Steps
+# Next Steps
 * Provide Full Checkout Functionality with Card and user info
 * Create Stock Functionality
 * Add Clean Product Details
